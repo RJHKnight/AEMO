@@ -37,9 +37,9 @@ FULL_DATE <- "\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2}"
 
 # Standardise date/time format
 results <- results %>% 
-     mutate(SETTLEMENTDATE = if_else(str_detect(SETTLEMENTDATE, FULL_DATE),
-                                     SETTLEMENTDATE,
-                                     paste0(SETTLEMENTDATE, ":00"))) %>% 
+  mutate(SETTLEMENTDATE = if_else(str_detect(SETTLEMENTDATE, FULL_DATE),
+                                  SETTLEMENTDATE,
+                                  paste0(SETTLEMENTDATE, ":00"))) %>% 
   mutate(SETTLEMENTDATE = ymd_hms(SETTLEMENTDATE)) %>% 
   rename(
     region = REGION,
